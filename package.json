@@ -1,0 +1,20 @@
+{
+  "name": "angstrap",
+  "version": "1.0.0",
+  "description": "anthony's primary angular template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anthony Stabile",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "^1.7.2",
+    "event-stream": "^3.3.2",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-typescript": "^2.10.0",
+    "gulp-uglify": "^1.5.1"
+  }
+}

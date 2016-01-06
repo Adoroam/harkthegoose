@@ -1,0 +1,29 @@
+{
+  "name": "angstrap",
+  "description": "anthony's primary angular template",
+  "main": "index.js",
+  "authors": [
+    "Anthony Stabile"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "None"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "homepage": "https://github.com/Adoroam/angstrap",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8",
+    "bootstrap": "~3.3.6"
+  }
+}
