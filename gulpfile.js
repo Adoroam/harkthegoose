@@ -4,6 +4,7 @@ var concat = require('gulp-concat');
 var typescript = require('gulp-typescript');
 var connect = require('gulp-connect');
 var es = require('event-stream');
+var server = require('gulp-express');
 
 //complite typescript and merge javascript to dist/all.min.js
 gulp.task('scripts', function() {
@@ -23,6 +24,9 @@ gulp.task('css', function() {
     .pipe(concat('style.css'))
     .pipe(gulp.dest('dist'));    
 });
+gulp.task('server', function() {
+    server.run(['server.js']);
+});
 //run server on localhost and enable automatic refresh
 gulp.task('connect', function() {
     connect.server({
@@ -38,10 +42,10 @@ gulp.task('html', function() {
 //watch for changes in the index.html, templates, or any src folder
 //then run the js and css tasks and reload the server
 gulp.task('watch', function() {
-    gulp.watch(['dist/*.html', 'dist/templates/*', 'src/**/*'], ['scripts', 'css', 'html']);
+    gulp.watch(['dist/*.html', 'dist/templates/*', 'src/**/*'], ['scripts', 'css', 'server']);
 });
 //this runs all the tasks when you type gulp
-gulp.task('default', ['scripts', 'css', 'connect', 'watch']);
+gulp.task('default', ['scripts', 'css', 'watch', 'server']);
 
 /*
 error handler to check broken pieces

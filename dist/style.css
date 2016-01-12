@@ -1,8 +1,124 @@
+/*colors*/
+.blueOl {
+    border: 1px solid #2993d1;
+    border-radius: 2px;
+}
+.orangeOl {
+    border: 1px solid #f78f1e;
+    border-radius: 2px;
+}
+.darkOl {
+    border: 1px solid #272e31;
+    border-radius: 2px;
+}
+.lightOl {
+    border: 1px solid #8c979e;
+    border-radius: 2px;
+}
+.whiteOl {
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+}
+.blueBg { background-color: #2993d1; }
+.orangeBg { background-color: #f78f1e; }
+.darkBg { background-color: #272e31; }
+.lightBg { background-color: #8c979e; }
+.whiteBg { background-color: #ffffff; }
+
+.blueTxt { color: #2993d1; }
+.orangeTxt { color: #f78f1e; }
+.darkTxt { color: #272e31; }
+.lightTxt { color: #8c979e; }
+.whiteTxt { color: #ffffff; }
+
+/*
+blue #2993d1
+orange #f78f1e
+dark #272e31
+light #8c979e
+white #ffffff
+*/
+
 /* bootstrap overwrite */
 html {
-    font-family: 'raleway';
+    font-family: 'Lato', sans-serif;
+    height: 100%;
+    width: 100%;
 }
-a, a:hover, a:focus {
+body {
+    height: 100%;
+    width: 100%;
+    background-image: url('web.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #8E9E82;
+}
+h1, h2, h3, h4 {
+    font-family: 'Lustria', serif;
+}
+a {
     color: black;
     text-decoration: none;
+}
+a:hover, a:focus {
+    color: black;
+    text-decoration: none;
+    text-shadow: 0px 0px 3px #4ccbd1;
+    border-radius: 3px;
+}
+.center { text-align: center;}
+.ital { font-style: italic;}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.userlistdate {
+    text-align: right;
+}
+nav {
+    height: 2.1em;
+}
+nav a {
+
+}
+.text-box {
+    margin-top: 7em;
+    background-color: rgba(242, 240, 223, 0.8);
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.form-inline .form-control, .form-group {
+    width: 100%;
+}
+.form-inline .form-group {
+    margin-bottom: .5em;
+}
+@media (max-width: 767px) {
+   body {
+        font-size: 1.4em;        
+    }
+    .text-box {
+        margin-top: 0em;
+    }
+}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    body {
+        font-size: 1.4em;
+    }
+    
+}
+@media (min-width: 992px) and (max-width:1199px) {
+   body {
+        font-size: 1.4em;
+    }
+   
+}
+@media (min-width: 1200px) {
+   body {
+        font-size: 1.5em;
+    }
+  
 }

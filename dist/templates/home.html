@@ -1,1 +1,62 @@
-<h1>home page</h1>
+<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 vcenter">
+    <div class="row text-box">
+        <div class="col-xs-12 center">
+            <h3><strong>We are Hark the Goose Publishing and we’re coming soon.<wbr> Really soon.</strong></h3>
+            <h4 class="ital">Our collective dream is to publish beautiful, meaningful books.</h4>        
+        </div>
+        <div class="col-xs-12 col-sm-6 ">
+            <p>We want to work with creative writers, struggling writers, writers who have published a hundred books, and writers who’ve never written more than a few sentences. Even if you gave up halfway through it 6 years ago. Even if it’s just a note you scribbled on a napkin once in a coffee shop.</p>
+            <p>If you have an idea, a passion, or a story to tell - we can make it happen.</p>
+            <p>
+                When this website goes live we will offer three things:
+                <ul>
+                    <li>Ghost writing</li>
+                    <li>Editing</li>
+                    <li>Publishing</li>
+                </ul>
+            </p>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="well">
+                <p>We’re offering founding authors exclusively low prices on these services for life.</p>
+                <p>To become a founding author, we need your name and an email where we can reach you. </p>
+                <form action="/#/" method="POST" class="form-inline" ng-show="!sent">
+                    <div class="form-group {{ validName }}" id="name">
+                        <label class="control-label sr-only" for="clientName">Input group with success</label>
+                        <input type="text" 
+                        class="form-control" 
+                        id="clientName"  
+                        name="clientName" 
+                        aria-describedby="clientNameStatus" 
+                        placeholder="Full Name" 
+                        ng-model="clientName" 
+                        ng-change="validate('n');">
+                        <span id="clientNameStatus" class="sr-only">(success)</span>
+                    </div>
+                    <div class="form-group {{ validEmail }}" id="email">
+                        <label class="control-label sr-only" for="clientEmail">Input group with success</label>
+                        <input type="text" 
+                        class="form-control" 
+                        id="clientEmail"  
+                        name="clientEmail" 
+                        aria-describedby="clientEmailStatus" 
+                        placeholder="Email Address" 
+                        ng-model="clientEmail" 
+                        ng-change="validate('e');">
+                        <span id="clientEmailStatus" class="sr-only">(success)</span>
+                    </div> 
+                <button type="submit" class="submit btn btn-default form-control {{submitStatus()}}">Submit</button>
+                </form>
+                <div class="alert alert-success" role="alert" ng-show="sent">
+                    <strong>Thank you for your interest </strong>
+                    You will be notified when the site is live.
+                </div>
+                <p>No spam, no fluff, and absolutely none of those annoying copy/paste generic offer emails. When the site comes up and we’re ready to go you’ll get a simple hand written reminder from our Chief Writer & Editor.</p>
+            </div>
+        </div>
+        <div class="col-xs-12 center">
+            <p>If you’d like to work with us now without the fancy website - shoot our Chief Writer & Editor an email at <a href="mailto:ellen@harkthegoose.com">ellen@harkthegoose.com</a>.</p>
+        </div>
+    </div>
+
+</div>

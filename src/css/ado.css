@@ -1,0 +1,40 @@
+/*colors*/
+.blueOl {
+    border: 1px solid #2993d1;
+    border-radius: 2px;
+}
+.orangeOl {
+    border: 1px solid #f78f1e;
+    border-radius: 2px;
+}
+.darkOl {
+    border: 1px solid #272e31;
+    border-radius: 2px;
+}
+.lightOl {
+    border: 1px solid #8c979e;
+    border-radius: 2px;
+}
+.whiteOl {
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+}
+.blueBg { background-color: #2993d1; }
+.orangeBg { background-color: #f78f1e; }
+.darkBg { background-color: #272e31; }
+.lightBg { background-color: #8c979e; }
+.whiteBg { background-color: #ffffff; }
+
+.blueTxt { color: #2993d1; }
+.orangeTxt { color: #f78f1e; }
+.darkTxt { color: #272e31; }
+.lightTxt { color: #8c979e; }
+.whiteTxt { color: #ffffff; }
+
+/*
+blue #2993d1
+orange #f78f1e
+dark #272e31
+light #8c979e
+white #ffffff
+*/

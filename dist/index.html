@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html ng-app="app">
 <head>
-    <title>angstrap</title>
+    <title>Hark The Goose</title>
     <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lustria' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="bow/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="bow/jquery/dist/jquery.min.js"></script>
     <script src="bow/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bow/angular/angular.js"></script>
     <script src="bow/angular-route/angular-route.js"></script>
+    <script src="bow/angular-cookies/angular-cookies.js"></script>
     <script src="all.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="Website Author" content="Anthony Stabile">
     <base href="/">
 </head>
-<body>
-    <navigation></navigation>
-   <div ng-view>loading...</div>
+<body ng-controller="indexCtrl" ng-keydown="key($event)">
+    <div class="container-fluid body-container">
+        <div class="row" ng-show="admin">
+            <div class="col-xs-12 center">
+                <!-- <navigation></navigation> -->                
+            </div>
+        </div>
+        <div class="row">
+            <div ng-view>loading...</div>
+        </div>
+    </div>
+   
 </html>
