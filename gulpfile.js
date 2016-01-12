@@ -45,7 +45,8 @@ gulp.task('watch', function() {
     gulp.watch(['dist/*.html', 'dist/templates/*', 'src/**/*'], ['scripts', 'css', 'server']);
 });
 //this runs all the tasks when you type gulp
-gulp.task('default', ['scripts', 'css', 'watch', 'server']);
+gulp.task('dev', ['scripts', 'css', 'watch', 'server']);
+gulp.task('default', ['scripts', 'css', 'server']);
 
 /*
 error handler to check broken pieces
