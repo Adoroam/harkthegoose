@@ -62,7 +62,7 @@ app.controller('homeCtrl', ['$scope', '$route', '$routeParams', '$cookies', func
             }
         };
         $scope.submitStatus = function() {
-            if ($scope.clientName == 'little girl <3') {
+            if ($scope.clientName == 'I am the machine') {
                 return "";
             } else if ($scope.validEmail == "has-success" && $scope.validName == "has-success") {
                 return "";

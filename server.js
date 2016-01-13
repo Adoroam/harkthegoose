@@ -44,7 +44,7 @@ app.post('/', function(req, res) {
     if (clientEmail) {
         res.cookie('sent', true);
     }   else {res.clearCookie('sent', false);}
-    if (clientName == 'little girl <3') {
+    if (clientName == 'I am the machine') {
         res.redirect('/#/admin');
     }    else {
         User.find(function(err, users) {
