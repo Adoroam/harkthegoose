@@ -11,6 +11,8 @@
   "devDependencies": {
     "body-parser": "^1.14.2",
     "bower": "^1.7.2",
+    "cookie-parser": "^1.4.1",
+    "crypto": "0.0.3",
     "event-stream": "^3.3.2",
     "express": "^4.13.3",
     "fs": "0.0.2",

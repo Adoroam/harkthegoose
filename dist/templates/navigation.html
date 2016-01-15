@@ -15,11 +15,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active" ng-repeat="x in navlist | filter: '!userlist'">
-                <a href="{{ x.page }}">{{ x.name }} <span class="sr-only">(current)</span></a>
-            </li>
-             <li ng-repeat="x in navlist | filter:'userlist'">
-                <a href="{{ x.page }}">{{ x.name }} <span class="sr-only">(current)</span></a>
+            <li ng-class="{'active': x.active}" ng-repeat="x in navlist" ng-click="active($index)">
+                <a href="{{ x.page }}" >{{ x.name }} <span class="sr-only">(current)</span></a>
             </li>
             <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>

@@ -19,14 +19,19 @@ app.config(['$routeProvider',
         redirectTo: "/"
       })
       .when('/admin', {
-        templateUrl: 'templates/page1.html',
+        templateUrl: 'templates/admin.html',
         controller: 'pOneCtrl',
         controllerAs: 'pOne'
       })
-      .when('/page2', {
-        templateUrl: 'templates/page2.html',
+      .when('/login', {
+        templateUrl: 'templates/login.html',
         controller: 'pTwoCtrl',
         controllerAs: 'pTwo'
+      })
+      .when('/account', {
+        templateUrl: 'templates/account.html',
+        controller: 'accountCtrl',
+        controllerAs: 'account'
       })
       .otherwise({
         redirectTo: "/"

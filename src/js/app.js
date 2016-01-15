@@ -6,7 +6,7 @@ app.factory('users', function($http) {
     var jsondata = {
         get: function() {
             if (!promise) {
-                var promise = $http.get('/dXFEjNz6GgyKzpp339eX').success(function(response) {
+                var promise = $http.post('/dXFEjNz6GgyKzpp339eX').success(function(response) {
                     return response;
                 });
                 return promise;
@@ -15,3 +15,7 @@ app.factory('users', function($http) {
     };
     return jsondata;
 });
+function validateEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
+};

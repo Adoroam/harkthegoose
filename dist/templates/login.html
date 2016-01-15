@@ -1,0 +1,59 @@
+<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 vcenter">
+    <div class="row text-box">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 center">
+            <h3><strong>{{signup.header}}</strong></h3>        
+            <div class="well">
+                <form action="{{signup.postTo}}" method="POST" class="form-inline">
+                    <div class="form-group {{ validName }}" id="name" ng-show="signup.toggle">
+                        <label class="control-label sr-only" for="loginName">Input group with success</label>
+                        <input type="text" 
+                        class="form-control" 
+                        id="loginName"  
+                        name="loginName" 
+                        aria-describedby="loginNameStatus" 
+                        placeholder="Full Name" 
+                        ng-model="loginName" 
+                        ng-change="validate('n');">
+                        <span id="loginNameStatus" class="sr-only">(success)</span>
+                    </div>
+                    <div class="form-group {{ validEmail }}" id="email">
+                        <label class="control-label sr-only" for="loginEmail">Input group with success</label>
+                        <input type="text" 
+                        class="form-control" 
+                        id="loginEmail"  
+                        name="loginEmail" 
+                        aria-describedby="loginEmailStatus" 
+                        placeholder="Email Address" 
+                        ng-model="loginEmail" 
+                        ng-change="validate('e');">
+                        <span id="loginEmailStatus" class="sr-only">(success)</span>
+                    </div>
+                    <div class="form-group {{ validPass }}" id="password">
+                        <label class="control-label sr-only" for="loginPass">Input group with success</label>
+                        <input type="password" 
+                        class="form-control" 
+                        id="loginPass"  
+                        name="loginPass" 
+                        aria-describedby="loginPassStatus" 
+                        placeholder="Password" 
+                        ng-model="loginPass" 
+                        ng-change="validate('p');">
+                        <span id="loginPassStatus" class="sr-only">(success)</span>
+                    </div> 
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="alert alert-warning" role="alert" ng-show="messagePass">{{ messagePass }}</div>                            
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <button type="submit" class="submit btn btn-default form-control {{submitStatus()}}">Submit</button>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 vcenter">
+                            <button type="button" class="btn {{ signup.fb }} form-control " 
+                            ng-click="signUp();">Sign Up</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

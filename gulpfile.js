@@ -42,10 +42,10 @@ gulp.task('html', function() {
 //watch for changes in the index.html, templates, or any src folder
 //then run the js and css tasks and reload the server
 gulp.task('watch', function() {
-    gulp.watch(['dist/*.html', 'dist/templates/*', 'src/**/*'], ['scripts', 'css', 'server']);
+    gulp.watch(['dist/*.html', 'dist/templates/*', 'src/**/*'], ['scripts', 'css']);
 });
 //this runs all the tasks when you type gulp
-gulp.task('dev', ['scripts', 'css', 'watch', 'server']);
+gulp.task('dev', ['scripts', 'css','watch', 'server']);
 gulp.task('default', ['scripts', 'css', 'server']);
 
 /*

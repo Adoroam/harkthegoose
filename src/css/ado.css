@@ -1,4 +1,11 @@
 /*colors*/
+/*
+    blue #2993d1
+    orange #f78f1e
+    dark #272e31
+    light #8c979e
+    white #ffffff
+*/
 .blueOl {
     border: 1px solid #2993d1;
     border-radius: 2px;
@@ -30,11 +37,12 @@
 .darkTxt { color: #272e31; }
 .lightTxt { color: #8c979e; }
 .whiteTxt { color: #ffffff; }
-
-/*
-blue #2993d1
-orange #f78f1e
-dark #272e31
-light #8c979e
-white #ffffff
-*/
+/* reuseables */
+.center { text-align: center;}
+.ital { font-style: italic;}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    float: none;
+}

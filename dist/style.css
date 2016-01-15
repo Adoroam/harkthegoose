@@ -1,4 +1,11 @@
 /*colors*/
+/*
+    blue #2993d1
+    orange #f78f1e
+    dark #272e31
+    light #8c979e
+    white #ffffff
+*/
 .blueOl {
     border: 1px solid #2993d1;
     border-radius: 2px;
@@ -30,15 +37,15 @@
 .darkTxt { color: #272e31; }
 .lightTxt { color: #8c979e; }
 .whiteTxt { color: #ffffff; }
-
-/*
-blue #2993d1
-orange #f78f1e
-dark #272e31
-light #8c979e
-white #ffffff
-*/
-
+/* reuseables */
+.center { text-align: center;}
+.ital { font-style: italic;}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    float: none;
+}
 /* bootstrap overwrite */
 html {
     font-family: 'Lato', sans-serif;
@@ -66,21 +73,8 @@ a:hover, a:focus {
     text-shadow: 0px 0px 3px #4ccbd1;
     border-radius: 3px;
 }
-.center { text-align: center;}
-.ital { font-style: italic;}
-.vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
-}
 .userlistdate {
     text-align: right;
-}
-nav {
-    height: 2.1em;
-}
-nav a {
-
 }
 .text-box {
     margin-top: 7em;
@@ -88,11 +82,13 @@ nav a {
     border-radius: 5px;
     padding: 1em;
 }
-
-.form-inline .form-control, .form-group {
+.form-inline .form-control, .form-group, .input-group {
     width: 100%;
 }
 .form-inline .form-group {
+    margin-bottom: .5em;
+}
+div.alert.alert-warning {
     margin-bottom: .5em;
 }
 @media (max-width: 767px) {
