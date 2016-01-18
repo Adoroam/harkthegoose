@@ -20,7 +20,7 @@
                         <label class="control-label sr-only" for="loginEmail">Input group with success</label>
                         <input type="text" 
                         class="form-control" 
-                        id="loginEmail"  
+                        id="loginEmail" 
                         name="loginEmail" 
                         aria-describedby="loginEmailStatus" 
                         placeholder="Email Address" 
@@ -44,8 +44,11 @@
                         <div class="col-xs-12 col-sm-12">
                             <div class="alert alert-warning" role="alert" ng-show="messagePass">{{ messagePass }}</div>                            
                         </div>
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="alert alert-warning" role="alert" ng-show="messageName">{{ messageName }}</div>                            
+                        </div>
                         <div class="col-xs-12 col-sm-6">
-                            <button type="submit" class="submit btn btn-default form-control {{submitStatus()}}">Submit</button>
+                            <button type="{{ bStatus }}" class="submit btn btn-default form-control {{submitStatus()}}">Submit</button>
                         </div>
                         <div class="col-xs-12 col-sm-6 vcenter">
                             <button type="button" class="btn {{ signup.fb }} form-control " 

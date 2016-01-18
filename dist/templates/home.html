@@ -20,7 +20,7 @@
             <div class="well">
                 <p>We’re offering founding authors exclusively low prices on these services for life.</p>
                 <p>To become a founding author, we need your name and an email where we can reach you. </p>
-                <form action="/#/" method="POST" class="form-inline" ng-show="!sent">
+                <form action="/#/signup" method="POST" class="form-inline" ng-show="!sent">
                     <div class="form-group {{ validName }}" id="name">
                         <label class="control-label sr-only" for="clientName">Input group with success</label>
                         <input type="text" 
@@ -50,9 +50,6 @@
                 <div class="alert alert-success" role="alert" ng-show="sent">
                     <strong>Thank you for your interest </strong>
                     You will be notified when the site is live.
-                </div>
-                <div class="alert alert-primary" role="alert">
-                    <strong>Welcome back </strong>{{ user.email }}                   
                 </div>
                 <p>No spam, no fluff, and absolutely none of those annoying copy/paste generic offer emails. When the site comes up and we’re ready to go you’ll get a simple hand written reminder from our Chief Writer & Editor.</p>
             </div>

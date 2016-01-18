@@ -19,6 +19,14 @@
 </head>
 <body ng-controller="indexCtrl" ng-keydown="key($event)">
     <div class="container-fluid body-container">
+ 
+        <div id="logout" ng-if="user.email">
+            <form action="/" method="POST" class="form-inline">
+                <input type="hidden" name="logout" value="true">
+                <button type="submit" class="submit btn btn-default" >logout</button>
+            </form>
+        </div>
+
         <div class="row" ng-show="user.admin">
             <div class="col-xs-12 center">
                 <navigation></navigation>              

@@ -1,14 +1,50 @@
 <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 text-box">
-    <div class="row">
-        <div class="col-xs-12 center">
-            <h1>Account</h1>
-        </div>
-        <form action="#" method="POST" class="form-inline">
-           <table class="table table-hover">
-                <tr ng-repeat="x in acct | filter: model ">
+  <div class="row">
+    <div class="col-xs-12 center">
+      <h1>Account</h1>
+    </div>
+    <form action="/edit" method="POST" class="form-inline" id="editForm">
+      <table class="table">
+        <tr>
+          <th>Full Name |</th>
+          <td>
+            <div class="input-group">
+              <input type="text" class="form-control" ng-model="user.name" 
+              placeholder="Full Name" name="acctName" disabled>
+              <!-- <div class="input-group-addon">Edit</div> -->      
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Email Address |</th>
+          <td>
+            <div class="input-group">
+              <input type="text" class="form-control" ng-model="user.email" 
+              placeholder="Email Address" name="acctEmail" disabled>
+              <!-- <div class="input-group-addon">Edit</div> -->      
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Signup Date |</th>
+          <td>
+            <input type="text" class="form-control" 
+                   name="acctDate" id="acctDate" ng-model="user.signup | date: M.dd.yyyy" disabled>      
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Password |</th>
+          <td>
+            <div type="button" class="btn btn-default modalButton" data-toggle="modal" data-target="#sliderModal">Change Password</div>
+            <div type="button" class="btn btn-success" ng-show="update">{{ update }}</div>
+          </td>
+        </tr>
+
+                <!-- <tr ng-repeat="x in acct | filter: model ">
                    <th>{{ x.title }} |</th>
                    <td>
-                        <div class="input-group"><!-- FULL NAME -->
+                        <div class="input-group">FULL NAME
                             <label class="control-label sr-only" for="{{x.id}}">input group w success</label>
                             <input type="{{x.type}}" class="form-control {{x.fb}}"
                             name="{{x.id}}" id="{{x.id}}" placeholder="{{ x.ph }}"
@@ -16,7 +52,7 @@
                            <div class="input-group-addon">{{x.editState}}</div>            
                         </div>                       
                    </td>
-               </tr>
+                               </tr> -->
                <tr ng-show="user.admin">
                  <th>Admin Status |</th>
                  <td>
@@ -28,3 +64,39 @@
         </form>
     </div><!-- row -->
 </div><!-- text box -->
+    <!-- MODAL -->               
+<div class="modal fade" id="sliderModal" tabindex="-1" role="dialog" aria-labelledby="sliderModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title center" id="sliderModal">Change Password</h3>
+      </div><!-- end header -->
+            <div class="modal-body">
+              <form action="/edit" method="POST" class="form-inline">
+                <div class="form-group">
+                  <div class="input-group">
+                      <div class="input-group-addon">Old password</div>     
+                      <input type="password" class="form-control" ng-model="pass.Old" 
+                      placeholder="Old Password" name="acctPassOld">
+                  </div>
+                    <div class="input-group">
+                      <div class="input-group-addon">New Password</div>
+                      <input type="password" class="form-control" ng-model="pass.New" 
+                      placeholder="New Password" name="acctPassNew">     
+                    </div>
+                    <div class="input-group">
+                      <div class="input-group-addon">Confirm New Password</div>
+                      <input type="password" class="form-control" ng-model="pass.Confirm" 
+                      placeholder="Confirm New Password" name="acctPassConfirm">     
+                    </div>
+                </div>
+                <input type="hidden" name="passID" value="{{ user._id }}">
+                <div class="input-group center">
+                  <button type="submit" class="btn btn-default">Change Password</button>
+                </div>
+              </form>
+            </div><!-- end body -->
+    </div>
+  </div>
+</div>

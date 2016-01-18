@@ -34,8 +34,7 @@ app.controller('homeCtrl', ['$scope', '$route', '$routeParams', '$cookies', 'use
         this.name = 'homeCtrl';
         this.$route = $route;
         this.$routeParams = $routeParams;
-        $scope.sent = $cookies.get('sent');
-        $cookies.remove('sent');
+        $scope.sent = $cookies.get('user');
         //validation
         $scope.clientEmail = ''; 
         $scope.clientName = ''; 
@@ -85,12 +84,14 @@ app.controller('pTwoCtrl', ['$scope', '$routeParams', function($scope, $routePar
   $scope.validEmail = "has-feedback";
   $scope.validPass = "has-feedback";
   $scope.messagePass = "";
+  $scope.messageName = "";
   $scope.signup = {
     fb: "btn-default", 
     toggle: false, 
     header: "Login",
     postTo: "/login"
 };
+    $scope.bStatus = 'button';
   $scope.signUp =function() {
     if ($scope.signup.fb == "btn-default") {
         $scope.signup.fb = "btn-success";
@@ -105,6 +106,22 @@ app.controller('pTwoCtrl', ['$scope', '$routeParams', function($scope, $routePar
     }
   };
   $scope.validate = function(type) {  
+      if (type == "n") {
+          var x = $scope.loginName;
+          if (x == "") {
+              $scope.validName = "has-feedback";
+              $scope.messageName = "";
+          }   else if (x.length < 3) {
+              $scope.validName = "has-warning";
+              $scope.messageName = "name must be at least 3 characters";
+          }   else if (x.length >= 50) {
+              $scope.validName = "has-warning";
+              $scope.messageName = "name must be less than 50 characters";
+          }   else {
+            $scope.validName = "has-success";
+            $scope.messageName = "";
+        }
+      }
       if (type == "e") {
           var x = $scope.loginEmail;
           if (validateEmail(x)){
@@ -113,7 +130,7 @@ app.controller('pTwoCtrl', ['$scope', '$routeParams', function($scope, $routePar
                $scope.validEmail = "has-feedback";
           }   else {$scope.validEmail = "has-warning";}
       }
-      if (type == "n") {
+      if (type == "p") {
           var x = $scope.loginPass;
           if (x == "") {
               $scope.validPass = "has-feedback";
@@ -130,54 +147,37 @@ app.controller('pTwoCtrl', ['$scope', '$routeParams', function($scope, $routePar
         }
       }
   };
-  $scope.submitStatus = function() {
-      if ($scope.validEmail == "has-success" && $scope.validPass == "has-success") {
-          return "";
-      }   else {return "disabled"}
-  };
+    $scope.submitStatus = function() {
+        if ($scope.signup.toggle == true) {
+            if ($scope.validName == "has-success" && $scope.validEmail == "has-success" && $scope.validPass == "has-success") {
+                $scope.bStatus = 'submit';
+                return "";
+            }   else {
+                $scope.bStatus = 'button';
+                return "disabled";
+            }
+        }   else {
+            if ($scope.validEmail == "has-success" && $scope.validPass == "has-success") {
+                $scope.bStatus = 'submit';
+                return "";
+            }   else {
+                $scope.bStatus = 'button';
+                return "disabled";
+            }
+        }
+  };//end submitStatus
 }]);
 //ACCOUNT
-app.controller('accountCtrl', ['$scope', '$route', '$routeParams',  function($scope, $route, $routeParams) {
+app.controller('accountCtrl', ['$scope', '$route', '$routeParams', '$cookies', function($scope, $route, $routeParams, $cookies) {
     this.name = 'accountCtrl';
     this.$route = $route;
     this.$routeParams = $routeParams;
-    $scope.acct = [
-        {
-            title: "Full Name",
-            type: "text",
-            id: "uName",
-            fb: "has-feedback",
-            ph: "Full Name",
-            model: $scope.user.name,
-            editState: "Edit"
-        },
-        {
-            title: "Email Address",
-            type: "text",
-            id: "uEmail",
-            fb: "has-feedback",
-            ph: "Email",
-            model: $scope.user.email,
-            editState: "Edit"
-        },
-        {
-            title: "Password",
-            type: "password",
-            id: "uPass",
-            fb: "has-feedback",
-            ph: "Password",
-            model: $scope.user.password,
-            editState: "Reset Password",
+    $scope.update = $cookies.get('update');
+    $cookies.remove('update');
+    $scope.pass = {
+        Old: '',
+        New: '',
+        Confirm: ''
+    };
 
-        },
-        {
-            title: "Signup Date",
-            type: "text",
-            id: "uDate",
-            fb: "has-feedback",
-            ph: "",
-            model: $scope.user.signup,
-            editState: '',
-        }
-    ];
 }]);

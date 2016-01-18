@@ -19,7 +19,6 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
 });
 //schemas
-
 var userSchema = mongoose.Schema({
     name: String,
     email: String,
@@ -75,33 +74,11 @@ app.get('/dXFEjNz6GgyKzpp339eX', function(req, res) {
 });
 //client info
 app.post('/', function(req, res) {
-    /*var clientName = req.body.clientName;
-    var clientEmail = req.body.clientEmail;
-    var signupDate = Date();
-    var newClient = new Client({name: clientName, email: clientEmail, signup: signupDate}); 
-    if (clientEmail) {
-        res.cookie('sent', true);
-        Client.find(function(err, users) {
-            if (err) return console.log(err);
-            //loop through users and remove matching email          
-            for (x in users) {
-                if (users[x].email == newClient.email) {   
-                    var client = users[x];             
-                    client.remove(function(err, removed) {
-                        if (err) return console.log(err);
-                        console.log('removed ' + removed);
-                    });
-                }; 
-            };
-            //save the new user to the db
-            newClient.save(function(err, newClient) {
-                if (err) return console.log(err);
-                //log the new saved user
-                console.log('saved as:' + newClient);
-            });
-        });//end client find function
-        res.redirect('/');
-    }   else {res.clearCookie('sent');};*/
+    var logout = req.body.logout;
+    if (logout) {
+        res.clearCookie('user');
+        res.redirect('/');     
+    }   else {res.redirect('/');}
 });
 //login
 app.get('/login', function(req, res) {
@@ -145,7 +122,12 @@ app.post('/login', function(req, res) {
 app.post('/signup', function(req, res) {
     //client info
     if (req.body.loginEmail) {
-        var loginName = req.body.loginName;//post for name
+        //check to see if name is blank
+        if (req.body.loginName) {
+            var loginName = req.body.loginName;//post for name
+        }   else {
+            var loginName = '';//blank name
+        }
         var loginEmail = req.body.loginEmail;//post for email
         var loginPass = req.body.loginPass;//post for password
         loginPass = hash(loginPass);//hash the password
@@ -188,7 +170,7 @@ app.post('/signup', function(req, res) {
         res.cookie('error', 'no email');
         res.redirect('/login');}
 });
-//admin
+//ADMIN
 app.get('/admin', function(req, res) {
     res.redirect('/#/admin');
 });
@@ -207,6 +189,40 @@ app.post('/admin', function(req, res) {
         };
     });
     res.redirect('/admin');
+});
+//edit ACCOUNT
+app.post('/edit', function(req, res) {
+    var passID = req.body.passID;
+    var passOld = req.body.acctPassOld;
+    passOld = hash(passOld);
+    var passNew = req.body.acctPassNew;
+    var passConfirm = req.body.acctPassConfirm;
+    if (passID) {
+        User.find(function(err, users) {
+            if (err) return console.log(err);
+            var userPass = false;
+            for (x in users) {
+                if (users[x].id == passID) {
+                    userPass = users[x];
+                }
+            };
+            if (userPass) {
+                if (userPass.password == passOld) {
+                    if (passNew == passConfirm) {
+                        passNew = hash(passNew);
+                        User.update(
+                            { _id: passID },
+                            { password: passNew },
+                            { multi: false}
+                        );
+                        console.log("updated password");
+                        res.cookie('update', 'password successfully updated');
+                        res.redirect('/#/account');
+                    }   else {res.redirect('/#/account');}
+                }   else {res.redirect('/#/account');}
+            }   else {res.redirect('/#/account');}
+        });
+    }   else {res.redirect('/#/account');}
 });
 //manually add user
 /*app.get('/manualuser', function(req, res) {
