@@ -1,5 +1,7 @@
 ##Angular/Bootstrap Template by Anthony Stabile
 
+[![Join the chat at https://gitter.im/Adoroam/harkthegoose](https://badges.gitter.im/Adoroam/harkthegoose.svg)](https://gitter.im/Adoroam/harkthegoose?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ###How to set up
 - clone to a folder 
   - ``` git clone https://github.com/Adoroam/angstrap.git ```
